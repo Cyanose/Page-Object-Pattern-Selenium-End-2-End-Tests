@@ -7,9 +7,9 @@
 * 2: Failed user registration - *password* and *confirm password* fields do not match.
 
 * 3: Failed user registration - password does not meet the requirements.
-> a) there is no uppercase letter
-> b) there is no digit
-> c) there is no special character
+> a) there is no uppercase letter</br>
+> b) there is no digit</br>
+> c) there is no special character</br>
 
 * 4: Successfull login test.
 
