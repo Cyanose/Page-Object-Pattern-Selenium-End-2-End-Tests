@@ -23,7 +23,7 @@
 
 * 9: Successfull addition of a characteristic to the existing *'DEMO PROJECT'* process. Check if ....... was added to the *Characteristics* table.
 
-* 10: 
+* 10: Successfull addition of a characteristic to the existing *'DEMO PROJECT'* process. Check if it's visible on the Dashboard Page.
 
 * 11:
 
