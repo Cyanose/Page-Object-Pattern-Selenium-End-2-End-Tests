@@ -26,5 +26,3 @@
 * 10: Successfull addition of a characteristic to the existing *'DEMO PROJECT'* process. Check if it's visible on the Dashboard Page.
 
 * 11: Failed addition of a characteristic. Upper specification limit was not filled
-
-* 12: Successfull addition of a characteristic and results to given Characteristics and check the report - minimum 4 values from *results* table (TUTAJ POPRAWIC CAŁĄ 12-STKĘ BO JEST KARKOŁOMNIE NAPISANA!)
