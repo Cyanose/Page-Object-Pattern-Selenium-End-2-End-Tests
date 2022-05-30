@@ -1,5 +1,9 @@
 # Page Object Pattern Selenium end-2-end tests
 
+##### Setup
+
+The web app is dockerized, in order to set it up you need to invoke `docker-compose up -d` command in the root of the project directory where the docerfile is. Then you can access the app under `http://localhost:4444/` url in your browser.
+
 **Test Scenerios:**
 
 * 1: Successfull user registration (use uniqe email every time).
