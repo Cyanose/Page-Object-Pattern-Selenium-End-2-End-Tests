@@ -78,8 +78,6 @@ public class HomePage {
         if(!isParentExpanded(menuHome))
             menuHome.click();
 
-        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        //wait.until(ExpectedConditions.elementToBeClickable(dashboardBtn));
         dashboardBtn.click();
         return new DashBoardPage(driver);
     }
@@ -95,7 +93,4 @@ public class HomePage {
     }
 
      */
-
-
-
 }

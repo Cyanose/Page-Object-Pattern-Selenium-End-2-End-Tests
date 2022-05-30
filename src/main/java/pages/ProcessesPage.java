@@ -10,7 +10,6 @@ import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.Scanner;
 
 public class ProcessesPage extends HomePage {
 
@@ -37,7 +36,6 @@ public class ProcessesPage extends HomePage {
     }
 
     public ProcessesPage assertProcess(String expName, String expDescription, String expNotes){
-        //String GENERIC_PROCESS_ROW_XPATH="//td[text()='%s']/..";
 
         String processXpath=String.format(GENERIC_PROCESS_ROW_XPATH,expName);
         WebElement processRow = driver.findElement(By.xpath(processXpath));

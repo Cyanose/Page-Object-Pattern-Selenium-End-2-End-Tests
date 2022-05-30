@@ -24,8 +24,6 @@ public class AddProcessTest extends SeleniumBaseTest {
                 .submitProcessCreation()
                 .assertProcessesHeader()
                 .assertProcess(processName, processDescription, processNotes);
-
-        // oraz drugi scenariusz testowy sprawdzający czy proces jest widoczny w dashboardPage (HomePage)
     }
 
     @Test //test scenerio: 7
