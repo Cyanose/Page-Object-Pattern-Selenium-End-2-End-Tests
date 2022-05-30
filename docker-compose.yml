@@ -1,0 +1,24 @@
+version: '3'
+services:
+  spc-sql:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Youtube2021"
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+  spc-app:
+    image: ghcr.io/qa-services/spc:latest
+    depends_on:
+      - "spc-sql"
+    environment:
+      DbServer: "spc-sql"
+      DbPort: "1433"
+      DbUser: "sa"
+      Password: "Youtube2021"
+      Database: "spc"
+    ports:
+      - "4444:80"
+
+
