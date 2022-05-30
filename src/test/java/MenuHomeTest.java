@@ -4,7 +4,7 @@ import pages.LoginPage;
 public class MenuHomeTest extends SeleniumBaseTest{
 
     @Test //test scenerio: 5
-    public void navigationThroughMenuTest() {
+    public void shouldNavigateThroughMenu() {
         new LoginPage(driver)
                 .typeEmail(config.getLogin())
                 .typePassword(config.getPassword())

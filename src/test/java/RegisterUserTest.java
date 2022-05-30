@@ -23,8 +23,8 @@ public class RegisterUserTest extends SeleniumBaseTest{
                     .assertWelcomeElemetIsShown();
     }
 
-    @Test //test scenerio: 2
-    public void shouldFail_passwordsAreNOTtheSame(){
+    @Test //test scenerio: 2 passwordss are not the same
+    public void shouldFail(){
         String email = Faker.instance().internet().emailAddress();
         String password = Faker.instance().regexify("[A-Z]{1}[a-z]{5,96}[0-9]{1}([@#!$%^&*])");
 
@@ -47,9 +47,9 @@ public class RegisterUserTest extends SeleniumBaseTest{
         };
     }
 
-    //test scenerio: 3
+    //test scenerio: 3 incorrect password
     @Test(dataProvider = "wrongPasswords")
-    public void shouldFail_incorrectPassword(String password, String errMsg){
+    public void shouldFail(String password, String errMsg){
         String email = "test@gmail.com";
         new LoginPage(driver)
                 .goToRegisterPage()

@@ -7,7 +7,7 @@ import java.util.UUID;
 public class AddProcessTest extends SeleniumBaseTest {
 
     @Test //test scenerio: 6
-    private void newProcessShouldOccur() {
+    private void shouldOccurOnProcessesPage() {
         String processName = UUID.randomUUID().toString().substring(0, 10);
         String processDescription = Faker.instance().chuckNorris().fact();
         String processNotes = Faker.instance().company().bs();
@@ -27,7 +27,7 @@ public class AddProcessTest extends SeleniumBaseTest {
     }
 
     @Test //test scenerio: 7
-    public void processShouldOccurOnDashBoardPage() {
+    public void shouldOccurOnDashboardPage() {
         String processName = UUID.randomUUID().toString().substring(0, 10);
         String processDescription = Faker.instance().chuckNorris().fact();
         String processNotes = Faker.instance().company().bs();
@@ -48,7 +48,7 @@ public class AddProcessTest extends SeleniumBaseTest {
     }
 
     @Test //test scenerio: 8
-    public void shouldNOToccur_tooShortName() {
+    public void shouldNotOccurOnDashboardPage() {
         String tooShortProcessName = "ab";
         new LoginPage(driver)
                 .typeEmail(config.getLogin())
