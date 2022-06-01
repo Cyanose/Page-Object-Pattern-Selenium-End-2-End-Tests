@@ -20,8 +20,11 @@ public class SeleniumBaseTest {
         this.config = new Config();
         driver.get(config.getApplicationUrl());
     }
+    /*
      @AfterMethod
      public void baseAfterMethod(){
          driver.quit();
     }
+
+     */
 }
