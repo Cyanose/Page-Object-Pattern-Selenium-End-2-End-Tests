@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -26,6 +27,9 @@ public class CreateCharacteristicPage extends HomePage{
 
     @FindBy(css = ".btn-success")
     private WebElement createBtn;
+
+    @FindBy(css = ".field-validation-error")
+    private List<WebElement> errors;
 
     public CreateCharacteristicPage(WebDriver driver){
         super(driver);
@@ -56,8 +60,24 @@ public class CreateCharacteristicPage extends HomePage{
         return new CharacteristicsPage(driver);
     }
 
+    public CreateCharacteristicPage submitCreateWithFailure(){
+        createBtn.click();
+        return this;
+    }
+
     public CreateCharacteristicPage selectProcess(String processName){
         new Select(projectSelect).selectByVisibleText(processName);
+        return this;
+    }
+    public CreateCharacteristicPage assertCharacteristicError(String expError){
+        boolean doesErrorExist = false;
+        for (WebElement error:errors) {
+            if(error.getText().equals(expError)) {
+                doesErrorExist = true;
+                break;
+            }
+        }
+        Assert.assertTrue(doesErrorExist,"Errors do not match");
         return this;
     }
 }

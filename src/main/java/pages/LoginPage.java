@@ -67,7 +67,7 @@ public class LoginPage {
                 doesErrorExist = true;
                 break;
             }
-        Assert.assertTrue(doesErrorExist,"Błędy sie nie zgadzają");
+        Assert.assertTrue(doesErrorExist,"Errors do not match");
         return this;
     }
     public LoginPage assertLoginPageHeader(){

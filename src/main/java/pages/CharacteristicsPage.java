@@ -23,7 +23,7 @@ public class CharacteristicsPage extends HomePage{
         return this;
     }
     public CharacteristicsPage assertCharacteristicsUrl(String url){
-        Assert.assertEquals(url,driver.getCurrentUrl(),"adresy sie nie zgadzają");
+        Assert.assertEquals(url,driver.getCurrentUrl(),"Adresses are not equal");
         return this;
     }
     public CreateCharacteristicPage addNewCharacteristic(){
@@ -42,5 +42,21 @@ public class CharacteristicsPage extends HomePage{
         Assert.assertEquals(actUpperLimit,expUpperLimit);
         Assert.assertEquals(actBinCount,expBinCount);
         return this;
+    }
+    // TODO: Dokończyć tą metodę bo to tylko prototyp zeby wgl sie skompilowało
+    public ResultsPage goToResultsPage(String characteristicName) {
+        GENERIC_CHARACTERISTIC_ROW_XPATH+="//a[contains(@href, 'Results')]";
+        String resultBtnXpath = String.format(GENERIC_CHARACTERISTIC_ROW_XPATH,characteristicName);
+
+        driver.findElement(By.xpath(resultBtnXpath)).click();
+        return new ResultsPage(driver);
+    }
+
+    public ReportPage gotToReportPage(String characteristicName){
+        GENERIC_CHARACTERISTIC_ROW_XPATH+="//a[contains(@href, 'Report')]";
+        String reportBtnXpath = String.format(GENERIC_CHARACTERISTIC_ROW_XPATH,characteristicName);
+
+        driver.findElement(By.xpath(reportBtnXpath)).click();
+        return new ReportPage(driver);
     }
 }

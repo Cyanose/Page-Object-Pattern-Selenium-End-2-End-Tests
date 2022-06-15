@@ -6,12 +6,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
+import java.util.List;
+
 public class DashBoardPage extends HomePage {
 
     @FindBy(css = ".x_title>h2")
     private WebElement header;
     @FindBy(id = "button=[type=primary btn]")
     private WebElement reportBtn;
+
+    @FindBy(css=".tile_info")
+    private List<WebElement> characteristicsTable;
 
     public DashBoardPage(WebDriver driver) {
         super(driver);
@@ -25,6 +30,15 @@ public class DashBoardPage extends HomePage {
     public void goToDashboards() {
         new DashBoardPage(driver)
                 .clickReport();
+    }
+
+    public DashBoardPage assertCharacteristicWasAdded(String expName){
+        String GENERIC_CHARACTERISTIC_XPATH="//p[contains(text(), '%s')]";
+
+        String characteristicNameXpath=String.format(GENERIC_CHARACTERISTIC_XPATH,expName);
+        WebElement characteristic = driver.findElement(By.xpath(characteristicNameXpath));
+        Assert.assertEquals(characteristic.getText(),expName,"Characteristics Name does not match.");
+        return this;
     }
 
     public DashBoardPage assertDashboardUrl(String url) {
