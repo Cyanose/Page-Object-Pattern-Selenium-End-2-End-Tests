@@ -27,8 +27,10 @@ The web app is dockerized, in order to set it up you need to invoke `docker-comp
 
 * 8: Failed addition of a new process.
 
-* 9: Successfull addition of a characteristic to the existing *'DEMO PROJECT'* process. Check if ....... was added to the *Characteristics* table.
+* 9: Successfull addition of a characteristic to the existing *'DEMO PROJECT'* process. Check if characteristic was added Successfully to the *Characteristics* table.
 
 * 10: Successfull addition of a characteristic to the existing *'DEMO PROJECT'* process. Check if it's visible on the Dashboard Page.
 
 * 11: Failed addition of a characteristic. Upper specification limit was not filled
+
+* 12: Successfull addition of a characteristic to the existing *'DEMO PROJECT'* process, then Successfull addition of a results to this characteristic. Check if metrics in the raport are correct.
