@@ -1,16 +1,23 @@
+package tests;
+
 import com.github.javafaker.Faker;
-import org.testng.annotations.DataProvider;
+import data.TestDataSource;
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import utilities.DatabaseUtils;
 
-public class RegisterUserTest extends SeleniumBaseTest{
+import static data.TestDataSource.*;
+
+public class RegisterUserTest extends SeleniumBaseTest {
 
     @Test //test-scenerio: 1
     public void shouldAddUserSuccessfully(){
         String email = Faker.instance().internet().emailAddress();
 
-        /* regex that covers 6-99 characters, including: number,special char, lower,uppercase letters*/
-        String password = Faker.instance().regexify("[A-Z]{1}[a-z]{5,96}[0-9]{1}([@#!$%^&*])");
+        String password = generateValidPassword();
+
+        DatabaseUtils db = DatabaseUtils.openConnection();
+        db.insertDataToTable(email,password);
 
         System.out.println("email: "+email);
         System.out.println("password: "+password);
@@ -23,10 +30,10 @@ public class RegisterUserTest extends SeleniumBaseTest{
                     .assertWelcomeElemetIsShown();
     }
 
-    @Test //test scenerio: 2 passwordss are not the same
+    @Test //test scenerio: 2 passwords are not the same
     public void shouldFail(){
         String email = Faker.instance().internet().emailAddress();
-        String password = Faker.instance().regexify("[A-Z]{1}[a-z]{5,96}[0-9]{1}([@#!$%^&*])");
+        String password = generateValidPassword();
 
         new LoginPage(driver)
                 .goToRegisterPage()
@@ -38,17 +45,8 @@ public class RegisterUserTest extends SeleniumBaseTest{
                 .assertRegisterErrorIsShown("The password and confirmation password do not match.");
     }
 
-    @DataProvider
-    public static Object[][] wrongPasswords(){
-        return new Object[][]{
-                {"short","The Password must be at least 6 and at max 100 characters long."},
-                {"test1!","Passwords must have at least one uppercase ('A'-'Z')."},
-                {"Test1a","Passwords must have at least one non alphanumeric character."}
-        };
-    }
-
     //test scenerio: 3 incorrect password
-    @Test(dataProvider = "wrongPasswords")
+    @Test(dataProvider = "wrongPasswords",dataProviderClass = TestDataSource.class)
     public void shouldFail(String password, String errMsg){
         String email = "test@gmail.com";
         new LoginPage(driver)

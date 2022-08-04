@@ -1,9 +1,12 @@
+package tests;
+
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import tests.SeleniumBaseTest;
 
 import java.util.UUID;
 
-public class RaportTest extends SeleniumBaseTest{
+public class RaportTest extends SeleniumBaseTest {
 
     @Test //test scenerio: 12
     public void shouldGenerateProperReport() {

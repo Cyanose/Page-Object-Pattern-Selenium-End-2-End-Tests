@@ -1,7 +1,10 @@
+package tests;
+
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import tests.SeleniumBaseTest;
 
-public class MenuHomeTest extends SeleniumBaseTest{
+public class MenuHomeTest extends SeleniumBaseTest {
 
     @Test //test scenerio: 5
     public void shouldNavigateThroughMenu() {
