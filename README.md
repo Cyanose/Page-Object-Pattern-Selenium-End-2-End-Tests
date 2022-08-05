@@ -1,10 +1,10 @@
 # Page Object Pattern Selenium end-2-end tests
 
-The project contains the automated end-2-end test suite to the process control web-app.
+The project contains the automated end-2-end test suite for the process control web-app.
 
 ##### Setup
 
-The web app is dockerized, in order to set it up you need to invoke `docker-compose up -d` command in the root directory of your project (where the docerfile is). Then you can access the app under `http://localhost:4444/` url in your browser.
+The web app is dockerized, in order to set it up you need to invoke `docker-compose up -d` command in the root directory of your project (where the docerfile is). Then you can access the app under `http://localhost:4444/` url in your browser. I'm fully aware that We don't need 2 dockerized databases, I just wanted to try setting up one by myself :) 
 
 **Test Scenerios:**
 
@@ -34,3 +34,5 @@ The web app is dockerized, in order to set it up you need to invoke `docker-comp
 * 11: Failed addition of a characteristic. Upper specification limit was not filled
 
 * 12: Successfull addition of a characteristic to the existing *'DEMO PROJECT'* process, then Successfull addition of a results to this characteristic. Check if metrics in the raport are correct.
+
+* 13: Successfull login of all the freshly registered users. *(Written in order to train fetching test Data from database)*
