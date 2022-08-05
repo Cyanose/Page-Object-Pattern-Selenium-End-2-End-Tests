@@ -1,6 +1,9 @@
+package tests;
+
 import com.github.javafaker.Faker;
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import tests.SeleniumBaseTest;
 
 import java.util.UUID;
 

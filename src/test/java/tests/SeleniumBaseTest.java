@@ -1,3 +1,5 @@
+package tests;
+
 import config.Config;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -20,11 +22,9 @@ public class SeleniumBaseTest {
         this.config = new Config();
         driver.get(config.getApplicationUrl());
     }
-    /*
      @AfterMethod
      public void baseAfterMethod(){
          driver.quit();
     }
 
-     */
 }

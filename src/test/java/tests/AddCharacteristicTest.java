@@ -1,10 +1,12 @@
-import com.github.javafaker.Faker;
+package tests;
+
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import tests.SeleniumBaseTest;
 
 import java.util.UUID;
 
-public class AddCharacteristicTest extends SeleniumBaseTest{
+public class AddCharacteristicTest extends SeleniumBaseTest {
     @Test //test scenerio: 9
     public void shouldAddCharacteristic(){
         String processName = "DEMO PROJECT";
