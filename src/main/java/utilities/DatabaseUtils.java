@@ -95,7 +95,11 @@ public class DatabaseUtils {
         Statement s = null;
         try {
             s = this.conn.createStatement();
-            String query = "CREATE TABLE IF NOT EXISTS Users (login varchar(255) PRIMARY KEY, password varchar(255));";
+            String query = "CREATE DATABASE IF NOT EXISTS testData;";
+            s.execute(query);
+            query = "use testData;";
+            s.execute(query);
+            query = "CREATE TABLE IF NOT EXISTS Users (login varchar(255) PRIMARY KEY, password varchar(255));";
             s.execute(query);
             query = "INSERT IGNORE INTO Users (login, password) values('test@test.com','Test1!');";
             s.execute(query);
