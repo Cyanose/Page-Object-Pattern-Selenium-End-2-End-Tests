@@ -10,7 +10,7 @@ import static data.TestDataSource.*;
 
 public class RegisterUserTest extends SeleniumBaseTest {
 
-    @Test //test-scenerio: 1
+    @Test(invocationCount = 3) //test-scenerio: 1
     public void shouldAddUserSuccessfully(){
         String email = Faker.instance().internet().emailAddress();
 

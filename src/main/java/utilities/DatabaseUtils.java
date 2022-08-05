@@ -81,7 +81,7 @@ public class DatabaseUtils {
         Connection conn = null;
         try {
 
-            String url = String.format("jdbc:mysql://%s:%d/%s", server, portNum, database);
+            String url = String.format("jdbc:mysql://%s:%d/", server, portNum);
 
             conn = DriverManager.getConnection(url, userName, password);
 
@@ -92,9 +92,8 @@ public class DatabaseUtils {
     }
 
     private void prepareDatabase() {
-        Statement s = null;
         try {
-            s = this.conn.createStatement();
+            Statement s = this.conn.createStatement();
             String query = "CREATE DATABASE IF NOT EXISTS testData;";
             s.execute(query);
             query = "use testData;";
