@@ -20,5 +20,12 @@ services:
       Database: "spc"
     ports:
       - "4444:80"
-
+  spc-testData:
+    image: mysql:latest
+    depends_on:
+      - "spc-sql"
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+    ports:
+      - "13306:3306"
 
